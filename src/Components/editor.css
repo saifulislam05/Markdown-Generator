@@ -1,0 +1,16 @@
+.EasyMDEContainer {
+    width: 100%;
+    min-height: 100vh;
+}
+
+.EasyMDEContainer .CodeMirror{
+    min-height: 90vh;
+}
+
+.CodeMirror-scroll{
+    min-height: 90vh;
+}
+
+.editor-statusbar{
+    display: none;
+}
