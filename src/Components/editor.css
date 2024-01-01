@@ -3,14 +3,15 @@
     min-height: 100vh;
 }
 
-.EasyMDEContainer .CodeMirror{
+.EasyMDEContainer, .CodeMirror{
     min-height: 90vh;
 }
 
-.CodeMirror-scroll{
-    min-height: 90vh;
+.CodeMirror,
+.CodeMirror-scroll {
+    min-height: 90vhpx;
 }
-
 .editor-statusbar{
     display: none;
 }
+

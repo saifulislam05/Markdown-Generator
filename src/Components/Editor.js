@@ -1,6 +1,7 @@
 import React from "react";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
+import { useMemo } from "react";
 
 const Editor = ({ value, setValue, updateMarkdownContent }) => {
   const handleEditorChange = (newValue) => {
@@ -8,15 +9,16 @@ const Editor = ({ value, setValue, updateMarkdownContent }) => {
     updateMarkdownContent(newValue);
   };
 
-  const customStyle = {
-    ".CodeMirror-scroll": {
-      minHeight: "90vh",
-    },
-  };
-
+  const customStyleOption = useMemo(() => {
+    return {minHeight:"90vh"}
+  },[])
   return (
-    <div style={customStyle}>
-      <SimpleMDE value={value} onChange={handleEditorChange} />
+    <div>
+      <SimpleMDE
+        value={value}
+        onChange={handleEditorChange}
+        options={customStyleOption}
+      />
     </div>
   );
 };

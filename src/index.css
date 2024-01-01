@@ -12,7 +12,16 @@
     background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAUAAAAeCAYAAADkftS9AAAAIklEQVQoU2M4c+bMfxAGAgYYmwGrIIiDjrELjpo5aiZeMwF+yNnOs5KSvgAAAABJRU5ErkJggg==');
     cursor: col-resize;
 }
+.EasyMDEContainer,
+.CodeMirror {
+    min-height: 90vh;
+}
 
-.editor-statusbar{
+.CodeMirror,
+.CodeMirror-scroll {
+    min-height: 90vhpx;
+}
+
+.editor-statusbar {
     display: none;
 }
