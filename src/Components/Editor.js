@@ -1,13 +1,18 @@
-import React from 'react'
+import React from "react";
 import SimpleMDE from "react-simplemde-editor";
 import "easymde/dist/easymde.min.css";
-import "./editor.css"
-const Editor = ({value,setValue}) => {
+
+const Editor = ({ value, setValue, updateMarkdownContent }) => {
+  const handleEditorChange = (newValue) => {
+    setValue(newValue);
+    updateMarkdownContent(newValue);
+  };
+
   return (
     <div className="">
-      <SimpleMDE value={value} onChange={(value) => setValue(value)} />
+      <SimpleMDE value={value} onChange={handleEditorChange} />
     </div>
   );
-}
+};
 
-export default Editor
+export default Editor;
