@@ -72,7 +72,7 @@ const MarkdownPage = () => {
       <Preview value={value} />
     </Split>
   ) : (
-      <Home createNewMarkdown={createNewMarkdown} />
+    <Home createNewMarkdown={createNewMarkdown} />
   );
 };
 

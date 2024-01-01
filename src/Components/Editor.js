@@ -8,8 +8,14 @@ const Editor = ({ value, setValue, updateMarkdownContent }) => {
     updateMarkdownContent(newValue);
   };
 
+  const customStyle = {
+    ".CodeMirror-scroll": {
+      minHeight: "90vh",
+    },
+  };
+
   return (
-    <div className="">
+    <div style={customStyle}>
       <SimpleMDE value={value} onChange={handleEditorChange} />
     </div>
   );
