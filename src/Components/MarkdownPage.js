@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
+import Home from "./Home/Home";
 import Split from "react-split";
-
 import Editor from "./Editor";
 import Preview from "./Preview";
 import Sidebar from "./Sidebar/Sidebar";
@@ -14,12 +14,13 @@ const MarkdownPage = () => {
   );
   const [value, setValue] = useState("");
 
+  // Save to local storage whenever markdowns change
   useEffect(() => {
     localStorage.setItem("markdowns", JSON.stringify(markdowns));
   }, [markdowns]);
 
+  // Update editor content when currentMarkdownId or markdowns change
   useEffect(() => {
-   
     const currentMarkdown =
       markdowns.find((markdown) => markdown.id === currentMarkdownId) ||
       markdowns[0];
@@ -35,12 +36,9 @@ const MarkdownPage = () => {
     setCurrentMarkdownId(newMarkdown.id);
   };
 
-  const findCurrentMarkdown = () => {
-    return (
-      markdowns.find((markdown) => markdown.id === currentMarkdownId) ||
-      markdowns[0]
-    );
-  };
+  const findCurrentMarkdown = () =>
+    markdowns.find((markdown) => markdown.id === currentMarkdownId) ||
+    markdowns[0];
 
   const updateMarkdownContent = (newContent) => {
     const updatedMarkdowns = markdowns.map((markdown) =>
@@ -57,7 +55,7 @@ const MarkdownPage = () => {
     );
   };
 
-  return (
+  return markdowns.length > 0 ? (
     <Split sizes={[16, 42, 42]} direction="horizontal" className="flex h-full">
       <Sidebar
         markdowns={markdowns}
@@ -73,6 +71,8 @@ const MarkdownPage = () => {
       />
       <Preview value={value} />
     </Split>
+  ) : (
+      <Home createNewMarkdown={createNewMarkdown} />
   );
 };
 
